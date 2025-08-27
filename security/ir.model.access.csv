@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+egp_bmis.access_construction_control,access_construction_control,egp_bmis.model_construction_control,base.group_user,1,1,1,1
+egp_bmis.access_construction_control_line,access_construction_control_line,egp_bmis.model_construction_control_line,base.group_user,1,1,1,1
+egp_bmis.access_const_board_member,access_const_board_member,egp_bmis.model_const_board_member,base.group_user,1,1,1,1
