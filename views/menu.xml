@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_construction_control_root"
+              name="Construction Control"
+              web_icon="=static/description/icon.png"
+              sequence="1"/>
+
+    <!-- Main Construction control Menu -->
+        <menuitem
+                id="menu_construction_control_management"
+                name="Construction Control"
+                parent="menu_construction_control_root"
+                sequence="1"
+        />
+
+
+
+</odoo>
