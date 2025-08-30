@@ -21,13 +21,12 @@ class ConstructionControl(models.Model):
         string='Procurement Contract',
         tracking=True
     )
-    
+
     warehouse_id = fields.Many2one(
         'stock.warehouse',
         string='Warehouse',
         required=False
     )
-
     # partner_id = fields.Many2one('res.partner', string='Contractor', tracking=True)
     contract_number = fields.Char(
         string="Contract Number",
