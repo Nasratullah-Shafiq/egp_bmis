@@ -22,6 +22,7 @@ class ConstructionControl(models.Model):
         tracking=True
     )
 
+
     warehouse_id = fields.Many2one(
         'stock.warehouse',
         string='Warehouse',
