@@ -6,11 +6,10 @@
             <form string="Construction Quality Control" create="false" edit="true">
                 <header>
                     <button name="action_send_to_quality_control"
-                            string="Send to inventory"
+                            string="Send to Quality Control"
                             type="object"
                             class="btn-primary"
-
-
+                            invisible="state != 'in_progress'"
                     />
                     <button name="action_in_progress" type="object" string="Mark as In Progress"
                             class="btn-primary" invisible="state != 'draft'"/>
@@ -38,13 +37,29 @@
                         </button>
 
 
-                        <button name="action_open_construct_quality_controls"
+                        <!--                        <button name="action_open_quality_controls"-->
+                        <!--                                type="object"-->
+                        <!--                                class="oe_stat_button"-->
+                        <!--                                icon="fa-tasks"-->
+
+                        <!--                            >-->
+                        <!--                            <field name="construction_quality_ids" widget="statinfo" string="Construct Quality Control"/>-->
+                        <!--                        </button>-->
+<!--                        <button name="action_open_const_quality_controls"-->
+<!--                                type="object"-->
+<!--                                string="Quality Controls"-->
+<!--                                class="oe_stat_button"-->
+<!--                                icon="fa-check-square">-->
+<!--                            <field name="qc_count" widget="statinfo"/>-->
+<!--                        </button>-->
+                        <button name="action_open_const_quality_controls"
                                 type="object"
                                 class="oe_stat_button"
                                 icon="fa-tasks"
+                                >
 
-                            >
-                            <field name="construction_quality_ids" widget="statinfo" string="Construct Quality Control"/>
+
+                            <field name="qc_count" widget="statinfo" string="Construction Control"/>
                         </button>
 
                     </div>
@@ -75,9 +90,17 @@
 
                     <notebook>
 
+                        <page string="Approved QC Products"
+                             >
+                            <field name="qc_line_summary_html">
+<!-- invisible=" status not in ('implementation','complete')  or  procurement_type not in ('products','non_consultative')"-->
+                            </field>
+                        </page>
+
+
                         <page string="Line Items">
                             <field name="line_ids">
-                                <tree>
+                                <tree create="false" edit="false" delete="false" groups="egp_bmis.group_bmis_officer">
                                     <field name="product_id"/>
                                     <field name="description"/>
                                     <field name="first_estimation_qty"/>
@@ -180,8 +203,6 @@
             </p>
         </field>
     </record>
-
-
 
 
     <menuitem id="menu_construction_control"
