@@ -5,9 +5,12 @@
     'sequence': -100,
     'category': 'EGP',
     "description": "",
-    'depends': ['base', 'mail', 'hr', 'product', 'egp_requirements','egp_inventory'],
+    'depends': ['base', 'mail', 'hr', 'product', 'egp_requirements', 'egp_inventory'],
     'data': [
+        'security/security.xml',
+        # 'data/egp_bmis_default_data.xml',
         'security/ir.model.access.csv',
+        'data/egp_bmis_default_data.xml',
         'views/menu.xml',
         'views/construction_control_views.xml',
 
