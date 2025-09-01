@@ -21,13 +21,12 @@ class ConstructionControl(models.Model):
         string='Procurement Contract',
         tracking=True
     )
-
-
     warehouse_id = fields.Many2one(
         'stock.warehouse',
         string='Warehouse',
         required=False
     )
+
     # partner_id = fields.Many2one('res.partner', string='Contractor', tracking=True)
     contract_number = fields.Char(
         string="Contract Number",
@@ -122,26 +121,26 @@ class ConstructionControl(models.Model):
                 return super(ConstructionControl, self).unlink()
         return None
 
+        # In `proc.contract` model inventory connection
+    quality_ids = fields.One2many(
+            'quality.control', 'contract_id', string="Quality Control Records")
+
 
     # connection to inventory with bmis
 
     construction_quality_ids = fields.One2many(
-        'quality.control', 'contract_id', string="Quality Control Records")
+        'quality.control', 'const_contract_id', string="Quality Control Records")
 
+    qc_count = fields.Integer(
+        string="QC Count",
+        compute="_compute_qc_count",
+        store=True  # optional, if you want it stored
+    )
 
-    def action_open_construct_quality_controls(self):
-        return {
-            'type': 'ir.actions.act_window',
-            'name': _('Construct Quality Control Records'),
-            'res_model': 'quality.control',
-            'view_mode': 'tree,form',
-            'domain': [('id', 'in', self.construction_quality_ids.ids)],
-            'target': 'current',
-        }
-
-    # In `proc.contract` model inventory connection
-    # quality_ids = fields.One2many(
-    #     'quality.control', 'contract_id', string="Quality Control Records")
+    @api.depends('construction_quality_ids')
+    def _compute_qc_count(self):
+        for rec in self:
+            rec.qc_count = len(rec.construction_quality_ids)
 
     def action_send_to_quality_control(self):
         for contract in self:
@@ -203,7 +202,77 @@ class ConstructionControl(models.Model):
 
         return True
 
-    def action_open_quality_controls(self):
+
+    # //////////////////////////////////////////////////////
+    quality_line_ids = fields.One2many(
+        'quality.control.line', compute='_compute_quality_lines',
+        string="Approved Quality Lines", store=False)
+
+    @api.depends('construction_quality_ids.line_ids')
+    def _compute_quality_lines(self):
+        for contract in self:
+            contract.quality_line_ids = contract.construction_quality_ids.mapped('line_ids').filtered(lambda l: l.passed)
+
+    qc_line_summary_html = fields.Html(
+        string="QC Summary",
+        compute="_compute_qc_summary_html",
+        sanitize=False,
+        store=False,
+    )
+    # start of function that compute approved quality products.
+    def _compute_qc_summary_html(self):
+        for contract in self:
+            summary = {}
+            for line in contract.quality_line_ids:
+                pid = line.product_id.id
+                if pid not in summary:
+                    summary[pid] = {
+                        'product': line.product_id.display_name,
+                        'approved_qty': 0,
+                        'quantity_sum': 0.0,
+                        'price_total': 0,
+                        'line_count': 0,
+                    }
+                summary[pid]['approved_qty'] += line.approved_qty or 0.0
+                summary[pid]['quantity_sum'] += line.product_uom_qty - line.approved_qty or 0.0
+                summary[pid]['price_total'] += (line.price_unit or 0.0)
+
+                summary[pid]['line_count'] += 1
+
+
+            html = """
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr style="background-color: #f5f5f5; color: #333;">
+                            <th style="border: 1px solid #ccc; padding: 8px;">🛒 Product</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">✅ Approved Qty</th>
+                              <th style="border: 1px solid #ccc; padding: 8px;">❌ Not Approved Qty</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">💰 Avg Price</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">📦 QC Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            """
+
+            for data in summary.values():
+                avg_price = data['price_total'] / data['line_count'] if data['line_count'] else 0
+                html += f"""
+                    <tr style="border: 1px solid #ddd;">
+                        <td style="border: 1px solid #ccc; padding: 8px;">{data['product']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['approved_qty']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['quantity_sum']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{round(avg_price, 2)}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['line_count']}</td>
+                    </tr>
+                """
+
+            html += "</tbody></table>"
+            contract.qc_line_summary_html = html
+    #         end of function
+
+
+
+    def action_open_const_quality_controls(self):
         return {
             'type': 'ir.actions.act_window',
             'name': _('Quality Control Records'),
@@ -212,6 +281,8 @@ class ConstructionControl(models.Model):
             'domain': [('id', 'in', self.construction_quality_ids.ids)],
             'target': 'current',
         }
+
+
 
 class ConstructionControlLine(models.Model):
     """
@@ -330,9 +401,6 @@ class ConstructionControlLine(models.Model):
         for rec in self:
             if rec.product_id:
                 rec.unit_measure = rec.product_id.uom_id
-
-
-
 
 
 # contract connection
