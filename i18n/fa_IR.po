@@ -1,0 +1,712 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* egp_bmis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-20 09:51+0000\n"
+"PO-Revision-Date: 2025-08-20 09:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: egp_bmis
+#: model:res.groups,name:egp_bmis.group_bmis_officer
+msgid " EGP BMIS Officer "
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.module.category,description:egp_bmis.module_category_egp_construction_control
+msgid "Access rights for EGP Construction Control users"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_needaction
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_needaction
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_ids
+msgid "Activities"
+msgstr "فعالیت ها"
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_exception_decoration
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_exception_decoration
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_state
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_state
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_type_icon
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_type_icon
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Additional Information"
+msgstr "معلومات اضافی"
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__details
+msgid "Any specific technical or operational details."
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Approved QC Products"
+msgstr "اجناس تایید شده"
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__quality_line_ids
+msgid "Approved Quality Lines"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Are you sure you want to Make Draft?"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid ""
+"Are you sure you want to confirm and close this Construct Quality control?"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_attachment_count
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_attachment_count
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__sub_total
+msgid "Auto calculated: quantity × price."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__const_control_id
+msgid "Board Member"
+msgstr "اعضای بورد"
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__board_member_ids
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Board Members"
+msgstr "اعضای بورد"
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__complaint
+msgid "Complaint"
+msgstr "شکایت"
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__completed
+msgid "Completed"
+msgstr "تکمیل شده"
+
+#. module: egp_bmis
+#: model:ir.model,name:egp_bmis.model_const_board_member
+msgid "Const Board Members"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.ui.menu,name:egp_bmis.menu_construction_control
+#: model:ir.ui.menu,name:egp_bmis.menu_construction_control_management
+#: model:ir.ui.menu,name:egp_bmis.menu_construction_control_root
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Construction Control"
+msgstr "حفظ و مراقبت ساختمانی"
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__construction_control_id
+msgid "Construction Control Reference"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__line_ids
+msgid "Construction Items"
+msgstr "اجناس ساختمانی"
+
+#. module: egp_bmis
+#: model:ir.actions.act_window,name:egp_bmis.action_construction_control
+#: model:ir.model,name:egp_bmis.model_construction_control
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Construction Quality Control"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model,name:egp_bmis.model_construction_control_line
+msgid "Construction Quality Control Line"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Contract"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_end_date
+msgid "Contract End Date"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Contract Information"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_number
+msgid "Contract Number"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_date
+msgid "Contract Signing Date"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__start_date
+msgid "Contract Start Date"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__create_uid
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__create_uid
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__create_uid
+#: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__create_date
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__create_date
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__create_date
+#: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__ٍٍexamination
+msgid "Delivery and Dissection"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__description
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__description
+msgid "Description"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__description
+msgid "Detailed description of the construction item."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__description
+msgid "Detailed description of the construction project."
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Details"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__display_name
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__display_name
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__display_name
+#: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__construction_control__state__done
+msgid "Done"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__construction_control__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.module.category,description:egp_bmis.module_category_egp_bmis
+msgid "E-Governance Platform Procurement Management System"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.module.category,name:egp_bmis.module_category_egp_construction_control
+msgid "EGP Construction Control"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.module.category,name:egp_bmis.module_category_egp_bmis
+msgid "EGP-Procurement MIS"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__email
+msgid "Email"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__estimation_difference
+msgid "Estimation Difference"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__evaluation
+msgid "Evaluation"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__estimation_difference
+msgid "First Estimation - Second Estimation"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__first_estimation_qty
+msgid "First quantity estimation from the engineer/contractor."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_follower_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_follower_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_partner_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_partner_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_type_icon
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__activity_type_icon
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__has_message
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__has_message
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__id
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__id
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__id
+#: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_exception_icon
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_exception_icon
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_exception_icon
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__activity_exception_icon
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_needaction
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__message_needaction
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_has_error
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_has_sms_error
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__message_has_error
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__message_has_sms_error
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_has_error
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__construction_control__state__in_progress
+msgid "In Progress"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__first_estimation_qty
+msgid "Initial Estimation"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__inspection_
+msgid "Inspection"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_is_follower
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_is_follower
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__write_uid
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__write_uid
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__write_uid
+#: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__write_date
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__write_date
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__write_date
+#: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Line Items"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__line_ids
+msgid "List of items being tracked for construction quality."
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Mark as Done"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Mark as Draft"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Mark as In Progress"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__completed
+msgid "Marked True when both estimations are equal."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__max_qty
+msgid "Maximum Allowed Quantity"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_has_error
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_has_error
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__my_activity_date_deadline
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__my_activity_date_deadline
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_date_deadline
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_date_deadline
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_summary
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_summary
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_type_id
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_type_id
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_needaction_counter
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_needaction_counter
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_has_error_counter
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_has_error_counter
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_needaction_counter
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__message_needaction_counter
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_has_error_counter
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__message_has_error_counter
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__offer_opening
+msgid "Offer Opening"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__phone
+msgid "Phone"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__position_title
+msgid "Position"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__pre_offer_opening
+msgid "Pre Offer Opening"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model,name:egp_bmis.model_proc_contract
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_id
+msgid "Procurement Contract"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__product_id
+msgid "Product"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__product_id
+msgid "Product used or inspected in the construction project."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__Project_manager
+msgid "Project Manager"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__purchase
+msgid "Purchase"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__qc_count
+msgid "QC Count"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__qc_line_summary_html
+msgid "QC Summary"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Quality Control"
+msgstr ""
+
+#. module: egp_bmis
+#. odoo-python
+#: code:addons/egp_bmis/models/construction_pro.py:0
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__construction_quality_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__quality_ids
+#, python-format
+msgid "Quality Control Records"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_user_id
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_user_id
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__second_estimation_qty
+msgid "Revised quantity estimation."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__role
+msgid "Role"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_has_sms_error
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_has_sms_error
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__second_estimation_qty
+msgid "Second Estimation"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "Send to Quality Control"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__state
+msgid "Status"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_state
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__activity_state
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__sub_total
+msgid "Subtotal"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__details
+msgid "Technical Details"
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.actions.act_window,help:egp_bmis.action_construction_control
+msgid ""
+"Track and manage construction quality control items for approved procurement"
+" contracts."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_exception_decoration
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__activity_exception_decoration
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__price
+msgid "Unit Price"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__unit_measure
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__unit_measure
+msgid "Unit of measurement for this item."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__price
+msgid "Unit price of the item."
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__max_qty
+msgid "Upper limit of quantity allowed as per contract or estimation."
+msgstr ""
+
+#. module: egp_bmis
+#: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
+msgid "View Contract"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__warehouse_id
+msgid "Warehouse"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__website_message_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__website_message_ids
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: egp_bmis
+#: model:ir.model.fields,help:egp_bmis.field_const_board_member__website_message_ids
+#: model:ir.model.fields,help:egp_bmis.field_construction_control__website_message_ids
+#: model:ir.model.fields,help:egp_bmis.field_construction_control_line__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: egp_bmis
+#. odoo-python
+#: code:addons/egp_bmis/models/construction_pro.py:0
+#, python-format
+msgid "You cannot delete the record that has been done."
+msgstr ""
+
+#. module: egp_bmis
+#. odoo-python
+#: code:addons/egp_bmis/models/construction_pro.py:0
+#, python-format
+msgid "📦 QC created for pending/rejected products. Ref: %s"
+msgstr ""
