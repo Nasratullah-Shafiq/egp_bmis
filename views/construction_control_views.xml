@@ -9,16 +9,23 @@
                             string="Send to Quality Control"
                             type="object"
                             class="btn-primary"
+                            groups="egp_bmis.group_bmis_officer"
                             invisible="state != 'in_progress'"
                     />
                     <button name="action_in_progress" type="object" string="Mark as In Progress"
-                            class="btn-primary" invisible="state != 'draft'"/>
+                            class="btn-primary"
+                            groups="egp_bmis.group_bmis_officer"
+                            invisible="state != 'draft'"/>
                     <button name="action_done"
                             confirm="Are you sure you want to confirm and close this Construct Quality control?"
                             type="object" string="Mark as Done"
-                            class="btn-primary" invisible="state != 'in_progress'"/>
+                            class="btn-primary"
+                            groups="egp_bmis.group_bmis_officer"
+                            invisible="state != 'in_progress'"/>
                     <button name="action_draft" confirm="Are you sure you want to Make Draft?" type="object"
-                            string="Mark as Draft" invisible="state != ('done')"
+                            string="Mark as Draft"
+                            groups="egp_bmis.group_bmis_officer"
+                            invisible="state != ('done')"
                             class="btn-primary"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
 
