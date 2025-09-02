@@ -3,16 +3,15 @@
     <menuitem id="menu_construction_control_root"
               name="Construction Control"
               web_icon="=static/description/icon.png"
-              sequence="1"/>
+              sequence="1"
+              groups="egp_bmis.group_bmis_officer"/>
 
     <!-- Main Construction control Menu -->
-        <menuitem
-                id="menu_construction_control_management"
-                name="Construction Control"
-                parent="menu_construction_control_root"
-                sequence="1"
-        />
-
-
-
+    <menuitem
+            id="menu_construction_control_management"
+            name="Construction Control"
+            parent="menu_construction_control_root"
+            sequence="1"
+    />
+    
 </odoo>
