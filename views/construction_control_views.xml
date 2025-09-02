@@ -86,8 +86,7 @@
                             <field name="description"/>
                         </group>
                     </group>
-
-
+                    
                     <notebook>
 
                         <page string="Approved QC Products"
@@ -96,7 +95,6 @@
 <!-- invisible=" status not in ('implementation','complete')  or  procurement_type not in ('products','non_consultative')"-->
                             </field>
                         </page>
-
 
                         <page string="Line Items">
                             <field name="line_ids">
