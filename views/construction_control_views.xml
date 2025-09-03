@@ -103,7 +103,7 @@
                             </field>
                         </page>
 
-                        <page string="Line Items">
+                        <page string="Line Items" modifiers='{"readonly": [["can_edit_line_items", "=", false]]}'>>
                             <field name="line_ids">
                                 <tree create="false" edit="false" delete="false" groups="egp_bmis.group_bmis_officer">
                                     <field name="product_id"/>
