@@ -80,6 +80,12 @@ class ConstructionControl(models.Model):
 
     Project_manager = fields.Many2one('hr.employee', string='Project Manager', tracking=True)
 
+    can_edit_line_items = fields.Boolean(compute="_compute_can_edit_line_items")
+
+    def _compute_can_edit_line_items(self):
+        for rec in self:
+            rec.can_edit_line_items = self.env.user.has_group("egp_bmis.group_bmis_officer")
+
 
     # for the construction control status btn to see the contract of egp_procurement
     def action_view_procurement_contract(self):
