@@ -149,8 +149,7 @@
                             </tree>
                         </page>
 
-                        <page string="Board Members" name="board_members"
-                        >
+                        <page string="Board Members" name="board_members">
                             <field name="board_member_ids">
                                 <tree>
                                     <field name="employee_id"/>
