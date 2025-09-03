@@ -86,7 +86,6 @@ class ConstructionControl(models.Model):
         for rec in self:
             rec.can_edit_line_items = self.env.user.has_group("egp_bmis.group_bmis_officer")
 
-
     # for the construction control status btn to see the contract of egp_procurement
     def action_view_procurement_contract(self):
         self.ensure_one()
