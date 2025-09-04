@@ -7,7 +7,6 @@
             <field name="description">Access rights for EGP Construction Control users</field>
             <field name="sequence">10</field>
         </record>
-
         <!-- Group -->
         <record id="group_bmis_officer" model="res.groups">
             <field name="name">EGP BMIS Officer</field>
