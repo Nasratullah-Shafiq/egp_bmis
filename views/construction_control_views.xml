@@ -3,7 +3,7 @@
         <field name="name">construction.control.form</field>
         <field name="model">construction.control</field>
         <field name="arch" type="xml">
-            <form string="Construction Quality Control" create="false" edit="true">
+            <form string="Construction Quality Control">
                 <header>
                     <button name="action_send_to_quality_control"
                             string="Send to Quality Control"
@@ -150,7 +150,7 @@
                         </page>
 
                         <page string="Board Members" name="board_members">
-                            <field name="board_member_ids">
+                            <field name="board_member_ids" readonly="state == 'done' or not user_has_group_quality_control">
                                 <tree>
                                     <field name="employee_id"/>
                                     <field name="position_title"/>
@@ -173,7 +173,7 @@
 
 
                         <page string="Quality Control">
-                            <field name="construction_quality_ids" string="Quality Control"/>
+                            <field name="construction_quality_ids" string="Quality Control" readonly="state == 'done' or not user_has_group_quality_control"/>
                         </page>
                     </notebook>
 
