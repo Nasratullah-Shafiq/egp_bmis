@@ -12,6 +12,5 @@
             <field name="name">EGP BMIS Officer</field>
             <field name="category_id" ref="egp_bmis.module_category_egp_construction_control"/>
         </record>
-
     </data>
 </odoo>
