@@ -102,9 +102,9 @@
                             </field>
                         </page>
 
-                        <page string="Line Items" modifiers='{"readonly": [["can_edit_line_items", "=", false]]}'>
+                        <page string="Line Items" >
                             <field name="line_ids">
-                                <tree groups="egp_bmis.group_bmis_officer">
+                                <tree >
                                     <field name="product_id"/>
                                     <field name="description"/>
                                     <field name="first_estimation_qty"/>
