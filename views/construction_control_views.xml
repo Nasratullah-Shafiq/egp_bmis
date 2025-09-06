@@ -103,6 +103,7 @@
                         </page>
 
                         <page string="Line Items" >
+                            <field name="user_has_group_bmis_officer" invisible="1"/>
                             <field name="line_ids" readonly="state == 'draft' or not user_has_group_bmis_officer">
                                 <tree >
                                     <field name="product_id"/>
@@ -144,13 +145,13 @@
 
                         <page string="Additional Information">
                             <tree>
-                                <field name="description"/>
+                                <field name="description" readonly="state == 'draft' or not user_has_group_bmis_officer"/>
                             </tree>
                         </page>
 
                         <page string="Board Members" name="board_members">
-                            <field name="board_member_ids">
-<!--                                   readonly="state == 'done' or not user_has_group_bmis_officer">-->
+                            <field name="board_member_ids" readonly="state == 'draft' or not user_has_group_bmis_officer">
+
                                 <tree>
                                     <field name="employee_id"/>
                                     <field name="position_title"/>
