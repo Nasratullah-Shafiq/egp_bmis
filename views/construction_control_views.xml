@@ -102,9 +102,9 @@
                             </field>
                         </page>
 
-                        <page string="Line Items" modifiers='{"readonly": [["can_edit_line_items", "=", false]]}'>>
+                        <page string="Line Items" modifiers='{"readonly": [["can_edit_line_items", "=", false]]}'>
                             <field name="line_ids">
-                                <tree create="false" edit="false" delete="false" groups="egp_bmis.group_bmis_officer">
+                                <tree groups="egp_bmis.group_bmis_officer">
                                     <field name="product_id"/>
                                     <field name="description"/>
                                     <field name="first_estimation_qty"/>
@@ -149,7 +149,8 @@
                         </page>
 
                         <page string="Board Members" name="board_members">
-                            <field name="board_member_ids" readonly="state == 'done' or not user_has_group_bmis_officer">
+                            <field name="board_member_ids">
+<!--                                   readonly="state == 'done' or not user_has_group_bmis_officer">-->
                                 <tree>
                                     <field name="employee_id"/>
                                     <field name="position_title"/>
@@ -172,7 +173,8 @@
 
 
                         <page string="Quality Control">
-                            <field name="construction_quality_ids" string="Quality Control" readonly="state == 'done' or not user_has_group_bmis_officer"/>
+                            <field name="construction_quality_ids" string="Quality Control" />
+<!--                                   readonly="state == 'done' or not user_has_group_bmis_officer"/>-->
                         </page>
                     </notebook>
 
