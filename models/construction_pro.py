@@ -80,7 +80,18 @@ class ConstructionControl(models.Model):
 
     Project_manager = fields.Many2one('hr.employee', string='Project Manager', tracking=True)
 
-    
+    user_has_group_bmis_officer = fields.Boolean(
+        string="Is BMIS Officer",
+        compute="_compute_user_has_group_bmis_officer",
+        store=False
+    )
+
+    @api.depends()
+    def _compute_user_has_group_bmis_officer(self):
+        """Check if current user is in the BMIS officer group."""
+        group = self.env.ref('egp_bmis.group_bmis_officer', raise_if_not_found=False)
+        for record in self:
+            record.user_has_group_bmis_officer = group in self.env.user.groups_id if group else False
 
     # for the construction control status btn to see the contract of egp_procurement
     def action_view_procurement_contract(self):
