@@ -103,7 +103,7 @@
                         </page>
 
                         <page string="Line Items" >
-                            <field name="line_ids">
+                            <field name="line_ids" readonly="state == 'draft' or not user_has_group_bmis_officer">
                                 <tree >
                                     <field name="product_id"/>
                                     <field name="description"/>
