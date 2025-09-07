@@ -533,7 +533,7 @@ msgstr ""
 #: model:ir.model,name:egp_bmis.model_proc_contract
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_id
 msgid "Procurement Contract"
-msgstr ""
+msgstr "قرارداد تدارکاتی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__product_id
