@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 09:51+0000\n"
-"PO-Revision-Date: 2025-08-20 09:51+0000\n"
+"POT-Creation-Date: 2025-09-06 05:47+0000\n"
+"PO-Revision-Date: 2025-09-06 05:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -152,42 +152,42 @@ msgstr "اجناس ساختمانی"
 #: model:ir.model,name:egp_bmis.model_construction_control
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Construction Quality Control"
-msgstr ""
+msgstr "کنترل کیفیت ساخت‌وساز"
 
 #. module: egp_bmis
 #: model:ir.model,name:egp_bmis.model_construction_control_line
 msgid "Construction Quality Control Line"
-msgstr ""
+msgstr "خط کنترل کیفیت ساخت‌وساز"
 
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Contract"
-msgstr ""
+msgstr "قرارداد"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_end_date
 msgid "Contract End Date"
-msgstr ""
+msgstr "تاریخ ختم قرارداد"
 
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Contract Information"
-msgstr ""
+msgstr "معلومات قرارداد"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_number
 msgid "Contract Number"
-msgstr ""
+msgstr "شماره قرارداد"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__contract_date
 msgid "Contract Signing Date"
-msgstr ""
+msgstr "تاریخ امضای قرارداد"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__start_date
 msgid "Contract Start Date"
-msgstr ""
+msgstr "تاریخ شروع قرارداد"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__create_uid
@@ -195,7 +195,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__create_uid
 #: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "ایجاد شده توسط"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__create_date
@@ -203,7 +203,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__create_date
 #: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__create_date
 msgid "Created on"
-msgstr ""
+msgstr "ایجادشده در"
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__ٍٍexamination
@@ -214,12 +214,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__description
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__description
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__description
 msgid "Detailed description of the construction item."
-msgstr ""
+msgstr "توضیح مفصل مورد ساخت‌وساز"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_construction_control__description
@@ -229,7 +229,7 @@ msgstr ""
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Details"
-msgstr ""
+msgstr "توضیحات"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__display_name
@@ -237,12 +237,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__display_name
 #: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "نام نمایشی"
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__construction_control__state__done
 msgid "Done"
-msgstr ""
+msgstr "انجام شده"
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__construction_control__state__draft
@@ -251,7 +251,7 @@ msgstr ""
 
 #. module: egp_bmis
 #: model:ir.module.category,description:egp_bmis.module_category_egp_bmis
-msgid "E-Governance Platform Procurement Management System"
+msgid "E-Governance Platform Construction Control System"
 msgstr ""
 
 #. module: egp_bmis
@@ -261,52 +261,52 @@ msgstr ""
 
 #. module: egp_bmis
 #: model:ir.module.category,name:egp_bmis.module_category_egp_bmis
-msgid "EGP-Procurement MIS"
+msgid "EGP Construction Control "
 msgstr ""
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__email
 msgid "Email"
-msgstr ""
+msgstr "ایمیل"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "کارمند"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__estimation_difference
 msgid "Estimation Difference"
-msgstr ""
+msgstr "تفاوت برآورد"
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__evaluation
 msgid "Evaluation"
-msgstr ""
+msgstr "ارزیابی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__estimation_difference
 msgid "First Estimation - Second Estimation"
-msgstr ""
+msgstr "براورد اولی براورد ثانی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__first_estimation_qty
 msgid "First quantity estimation from the engineer/contractor."
-msgstr ""
+msgstr "اولین برآورد مقدار از طرف انجینیر/قراردادکننده"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_follower_ids
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_follower_ids
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "تعقیب کننده گان"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_partner_ids
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_partner_ids
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "دنبال‌کنندگان (شریک‌ها)"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_type_icon
@@ -320,7 +320,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__has_message
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "دارنده مسیج"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__id
@@ -328,28 +328,28 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__id
 #: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__id
 msgid "ID"
-msgstr ""
+msgstr "شناسه"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_exception_icon
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_exception_icon
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "ایکن"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_exception_icon
 #: model:ir.model.fields,help:egp_bmis.field_construction_control__activity_exception_icon
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "آیکن برای نشان دادن یک فعالیت استثنایی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_needaction
 #: model:ir.model.fields,help:egp_bmis.field_construction_control__message_needaction
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "اگر تیک شود، پیام‌های جدید نیاز به توجه شما دارند."
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_const_board_member__message_has_error
@@ -359,21 +359,26 @@ msgstr ""
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_has_error
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "اگر تیک شود، بعضی از پیام‌ها با خطای ارسال مواجه شده‌اند."
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__construction_control__state__in_progress
 msgid "In Progress"
-msgstr ""
+msgstr "در جریان"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__first_estimation_qty
 msgid "Initial Estimation"
-msgstr ""
+msgstr "برآورد اول"
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__inspection_
 msgid "Inspection"
+msgstr "بازرسی"
+
+#. module: egp_bmis
+#: model:ir.model.fields,field_description:egp_bmis.field_construction_control__user_has_group_bmis_officer
+msgid "Is BMIS Officer"
 msgstr ""
 
 #. module: egp_bmis
@@ -389,7 +394,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__write_uid
 #: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "آخرین به‌روزرسانی توسط"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__write_date
@@ -397,17 +402,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__write_date
 #: model:ir.model.fields,field_description:egp_bmis.field_proc_contract__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "آخرین به‌روزرسانی در"
 
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Line Items"
-msgstr ""
+msgstr "اجناس"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_construction_control__line_ids
 msgid "List of items being tracked for construction quality."
-msgstr ""
+msgstr "فهرست مواردی که برای کیفیت ساخت‌وساز پیگیری می‌شوند."
 
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
@@ -427,54 +432,54 @@ msgstr ""
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_construction_control_line__completed
 msgid "Marked True when both estimations are equal."
-msgstr ""
+msgstr "علامت‌گذاری شده به‌عنوان درست وقتی هر دو برآورد برابر باشند."
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__max_qty
 msgid "Maximum Allowed Quantity"
-msgstr ""
+msgstr "حداکثر مقدار مجاز"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_has_error
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_has_error
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "خطای ارسال پیام"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_ids
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__message_ids
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "پیام"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__my_activity_date_deadline
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__my_activity_date_deadline
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr ""
+msgstr "مهلت فعالیت من"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_date_deadline
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_date_deadline
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "مهلت فعالیت بعدی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_summary
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_summary
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "خلاصه فعالیت بعدی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__activity_type_id
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__activity_type_id
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "نوع فعالیت بعدی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_needaction_counter
@@ -512,12 +517,12 @@ msgstr ""
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__phone
 msgid "Phone"
-msgstr ""
+msgstr "شماره تماس"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__position_title
 msgid "Position"
-msgstr ""
+msgstr "وظیفه"
 
 #. module: egp_bmis
 #: model:ir.model.fields.selection,name:egp_bmis.selection__const_board_member__role__pre_offer_opening
@@ -563,7 +568,7 @@ msgstr ""
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Quality Control"
-msgstr ""
+msgstr "کنترول و کیفیت"
 
 #. module: egp_bmis
 #. odoo-python
@@ -589,7 +594,7 @@ msgstr ""
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__role
 msgid "Role"
-msgstr ""
+msgstr "رول"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_const_board_member__message_has_sms_error
@@ -601,17 +606,17 @@ msgstr ""
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__second_estimation_qty
 msgid "Second Estimation"
-msgstr ""
+msgstr "براورد ثانی"
 
 #. module: egp_bmis
 #: model_terms:ir.ui.view,arch_db:egp_bmis.view_construction_control_form
 msgid "Send to Quality Control"
-msgstr ""
+msgstr "به کنترول کیفیت ارسال شود"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control__state
 msgid "Status"
-msgstr ""
+msgstr "حالت"
 
 #. module: egp_bmis
 #: model:ir.model.fields,help:egp_bmis.field_const_board_member__activity_state
@@ -627,7 +632,7 @@ msgstr ""
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__sub_total
 msgid "Subtotal"
-msgstr ""
+msgstr "مجموعه فرعی"
 
 #. module: egp_bmis
 #: model:ir.model.fields,field_description:egp_bmis.field_construction_control_line__details
