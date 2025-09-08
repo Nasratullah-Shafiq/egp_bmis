@@ -154,6 +154,13 @@ class ConstructionControl(models.Model):
         for rec in self:
             rec.qc_count = len(rec.construction_quality_ids)
 
+    @api.model
+    def action_send_to_property(self):
+        """ This method will be called when the button is clicked """
+        # Example logic: Set the record to 'draft' state
+        self.write({'state': 'draft'})
+        return True
+
     def action_send_to_quality_control(self):
         for contract in self:
             if not contract.warehouse_id:
