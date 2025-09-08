@@ -12,6 +12,13 @@
                             groups="egp_bmis.group_bmis_officer"
                             invisible="state != 'in_progress'"
                     />
+                    <button name="action_send_to_property"
+                            string="Send to Property"
+                            type="object"
+                            class="btn-primary"
+                            groups="egp_bmis.group_bmis_officer"
+                            invisible="state != 'in_progress'"
+                    />
                     <button name="action_in_progress" type="object" string="Mark as In Progress"
                             class="btn-primary"
                             groups="egp_bmis.group_bmis_officer"
