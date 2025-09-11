@@ -6,7 +6,6 @@ LastEditTime: 2025-07-29 12:08:18
 FilePath: customization/egp_bmis/models/board_members.py
 Description: 这是默认设置,可以在设置》工具》File Description中进行配置
 """
-
 from odoo import models, fields, api, _
 
 class ConstBoardMember(models.Model):
