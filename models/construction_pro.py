@@ -3,7 +3,6 @@ from odoo.exceptions import UserError, ValidationError
 from collections import defaultdict
 
 
-
 class ConstructionControl(models.Model):
     """
     Main model for tracking construction quality control
