@@ -12,6 +12,7 @@
                             groups="egp_bmis.group_bmis_officer"
                             invisible="state != 'in_progress'"
                     />
+                    
                     <button name="action_send_to_property"
                             string="Send to Property"
                             type="object"
