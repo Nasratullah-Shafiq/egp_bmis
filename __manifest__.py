@@ -15,7 +15,6 @@
         'views/construction_control_views.xml',
 
     ],
-
     "author": "Nasratullah Shafiq",
     "website": "https://mcit.gov.af/",
     "installable": True,
