@@ -13,5 +13,4 @@
             parent="menu_construction_control_root"
             sequence="1"
     />
-
 </odoo>
