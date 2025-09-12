@@ -15,6 +15,7 @@ class ConstructionControl(models.Model):
 
     # Link to procurement offer (contractor offer)
 
+
     contract_id = fields.Many2one(
         'proc.contract',
         string='Procurement Contract',
