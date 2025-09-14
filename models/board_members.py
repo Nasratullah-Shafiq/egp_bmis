@@ -16,15 +16,15 @@ class ConstBoardMember(models.Model):
     position_title = fields.Char(string='Position', related='employee_id.job_id.name', store=True)
     phone = fields.Char(string='Phone', related='employee_id.work_phone', store=True)
     email = fields.Char(string='Email', related='employee_id.work_email', store=True)
-    role = fields.Selection([('pre_offer_opening', 'Pre Offer Opening'),
-                             ('offer_opening', 'Offer Opening'),
-                             ('evaluation', 'Evaluation'),
-                             ('ٍٍexamination', 'Delivery and Dissection'),
-                             ('purchase', 'Purchase'),
-                             ('complaint', 'Complaint'),
-                             ('inspection ', 'Inspection'),
-                             ]
-                            , string='Role', required=True, tracking=True)
+    # role = fields.Selection([('pre_offer_opening', 'Pre Offer Opening'),
+    #                          ('offer_opening', 'Offer Opening'),
+    #                          ('evaluation', 'Evaluation'),
+    #                          ('ٍٍexamination', 'Delivery and Dissection'),
+    #                          ('purchase', 'Purchase'),
+    #                          ('complaint', 'Complaint'),
+    #                          ('inspection ', 'Inspection'),
+    #                          ]
+    #                         , string='Role', required=True, tracking=True)
 
     employee_id = fields.Many2one('hr.employee', string="Employee", tracking=True)
     const_control_id = fields.Many2one('construction.control', string="Board Member", tracking=True)
