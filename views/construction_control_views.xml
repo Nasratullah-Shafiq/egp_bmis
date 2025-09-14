@@ -165,7 +165,7 @@
                                     <field name="position_title"/>
                                     <field name="phone"/>
                                     <field name="email"/>
-                                    <field name="role"/>
+<!--                                    <field name="role"/>-->
                                 </tree>
                                 <form>
                                     <group>
@@ -174,7 +174,7 @@
                                         <field name="position_title"/>
                                         <field name="phone"/>
                                         <field name="email"/>
-                                        <field name="role" required="1"/>
+<!--                                        <field name="role" required="1"/>-->
                                     </group>
                                 </form>
                             </field>
