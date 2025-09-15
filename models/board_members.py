@@ -30,3 +30,4 @@ class ConstBoardMember(models.Model):
     const_control_id = fields.Many2one('construction.control', string="Board Member", tracking=True)
 
 
+
