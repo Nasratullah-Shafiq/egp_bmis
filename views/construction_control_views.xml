@@ -180,7 +180,6 @@
                             </field>
                         </page>
 
-
                         <page string="Quality Control">
                             <field name="construction_quality_ids" string="Quality Control" readonly="state == 'draft' or not user_has_group_bmis_officer"/>
 
