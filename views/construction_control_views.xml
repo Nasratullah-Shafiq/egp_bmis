@@ -217,7 +217,6 @@
         </field>
     </record>
 
-
     <menuitem id="menu_construction_control"
               name="Construction Control"
               parent="menu_construction_control_management"
