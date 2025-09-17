@@ -25,6 +25,7 @@ class ConstBoardMember(models.Model):
     #                          ('inspection ', 'Inspection'),
     #                          ]
     #                         , string='Role', required=True, tracking=True)
+    
 
     employee_id = fields.Many2one('hr.employee', string="Employee", tracking=True)
     const_control_id = fields.Many2one('construction.control', string="Board Member", tracking=True)
