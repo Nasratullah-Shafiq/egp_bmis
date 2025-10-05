@@ -143,6 +143,21 @@ class ConstructionControl(models.Model):
     construction_quality_ids = fields.One2many(
         'quality.control', 'const_contract_id', string="Quality Control Records")
 
+    equipment_ids = fields.One2many(
+        'maintenance.equipment', 'const_contract_id', string="Equipments"
+    )
+
+    pc_count = fields.Integer(
+        string="PC Count",
+        compute="_compute_pc_count",
+        store=True  # optional, if you want it stored
+    )
+
+    @api.depends('equipment_ids')
+    def _compute_pc_count(self):
+        for rec in self:
+            rec.qc_count = len(rec.equipment_ids)
+
     qc_count = fields.Integer(
         string="QC Count",
         compute="_compute_qc_count",
@@ -154,12 +169,13 @@ class ConstructionControl(models.Model):
         for rec in self:
             rec.qc_count = len(rec.construction_quality_ids)
 
-    @api.model
-    def action_send_to_property(self):
-        """ This method will be called when the button is clicked """
-        # Example logic: Set the record to 'draft' state
-        self.write({'state': 'draft'})
-        return True
+
+    # @api.model
+    # def action_send_to_property(self):
+    #     """ This method will be called when the button is clicked """
+    #     # Example logic: Set the record to 'draft' state
+    #     self.write({'state': 'draft'})
+    #     return True
 
     def action_send_to_quality_control(self):
         for contract in self:
@@ -221,6 +237,94 @@ class ConstructionControl(models.Model):
 
         return True
 
+    # def action_send_to_property(self):
+    #     """
+    #     Send construction contract lines to the Maintenance Equipment module
+    #     """
+    #     MaintenanceEquipment = self.env['maintenance.equipment']
+    #
+    #     for contract in self:
+    #         if not contract.line_ids:
+    #             raise UserError("There are no construction items to send to property.")
+    #
+    #         for line in contract.line_ids:
+    #             if not line.product_id:
+    #                 continue
+    #
+    #             vals = {
+    #                 'name': line.product_id.name,
+    #                 # 'equipment_category_id': line.product_id.categ_id.id if line.product_id.categ_id else False,
+    #                 'product_uom_id': line.unit_measure.id,
+    #                 'unit_price': line.price,
+    #                 'subtotal': line.sub_total,
+    #                 'warehouse_id': contract.warehouse_id.id,
+    #                 'note': f"Generated from Contract {contract.contract_number} on {fields.Date.today()}",
+    #             }
+    #
+    #             MaintenanceEquipment.create(vals)
+    #
+    #         # Post a message to the chatter
+    #         contract.message_post(
+    #             body=_("🏗️ Construction items have been sent to Property (Maintenance Equipment).")
+    #         )
+    #
+    #     return True
+
+    def action_send_to_property(self):
+        """
+        Send construction contract lines to the Maintenance Equipment module
+        """
+        MaintenanceEquipment = self.env['maintenance.equipment']
+
+        for contract in self:
+            if not contract.line_ids:
+                raise UserError("There are no construction items to send to property.")
+
+            # Build a map of already sent lines (if needed, to avoid duplicates)
+            sent_lines_map = defaultdict(float)
+            existing_equipments = MaintenanceEquipment.search([('const_contract_id', '=', contract.id)])
+            for equip in existing_equipments:
+                key = (equip.name, equip.unit_price)
+                sent_lines_map[key] += equip.subtotal or 0.0
+
+            # Prepare equipment records
+            equipment_vals = []
+            for line in contract.line_ids:
+                if not line.product_id:
+                    continue
+
+                key = (line.product_id.name, line.price)
+                # Calculate remaining quantity if you want to avoid duplicates
+                remaining_qty = line.max_qty - sent_lines_map.get(key, 0.0)
+
+                if remaining_qty <= 0:
+                    continue
+
+                vals = {
+                    'name': line.product_id.name,
+                    'const_contract_id': contract.id,  # link back to the contract
+                    'product_uom_id': line.unit_measure.id,
+                    'unit_price': line.price,
+                    'subtotal': line.sub_total,
+                    'warehouse_id': contract.warehouse_id.id,
+                    'max_qty': remaining_qty,
+                    'note': f"Generated from Contract {contract.contract_number} on {fields.Date.today()}",
+                }
+
+                equipment_vals.append(vals)
+
+            # Create all equipment records in one batch
+            if equipment_vals:
+                MaintenanceEquipment.create(equipment_vals)
+
+                # Post message in chatter
+                contract.message_post(
+                    body=_("🏗️ Construction items have been sent to Property (Maintenance Equipment).")
+                )
+            else:
+                raise UserError("All lines in this contract are already sent to Property.")
+
+        return True
 
     # //////////////////////////////////////////////////////
     quality_line_ids = fields.One2many(
@@ -290,7 +394,7 @@ class ConstructionControl(models.Model):
     #         end of function
 
 
-
+    # this function show the data sent to the inventory.
     def action_open_const_quality_controls(self):
         return {
             'type': 'ir.actions.act_window',
@@ -298,6 +402,17 @@ class ConstructionControl(models.Model):
             'res_model': 'quality.control',
             'view_mode': 'tree,form',
             'domain': [('id', 'in', self.construction_quality_ids.ids)],
+            'target': 'current',
+        }
+
+    # this function show the data sent to the property.
+    def action_open_const_property(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Property Records'),
+            'res_model': 'maintenance.equipment',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', self.equipment_ids.ids)],
             'target': 'current',
         }
 
@@ -348,8 +463,6 @@ class ConstructionControlLine(models.Model):
         string='Unit Price',
         help='Unit price of the item.'
     )
-
-
 
     sub_total = fields.Float(
         string='Subtotal',
