@@ -50,30 +50,20 @@
                             <field name="contract_id" widget="statinfo" string="Contract"/>
                         </button>
 
-
-                        <!--                        <button name="action_open_quality_controls"-->
-                        <!--                                type="object"-->
-                        <!--                                class="oe_stat_button"-->
-                        <!--                                icon="fa-tasks"-->
-
-                        <!--                            >-->
-                        <!--                            <field name="construction_quality_ids" widget="statinfo" string="Construct Quality Control"/>-->
-                        <!--                        </button>-->
-<!--                        <button name="action_open_const_quality_controls"-->
-<!--                                type="object"-->
-<!--                                string="Quality Controls"-->
-<!--                                class="oe_stat_button"-->
-<!--                                icon="fa-check-square">-->
-<!--                            <field name="qc_count" widget="statinfo"/>-->
-<!--                        </button>-->
                         <button name="action_open_const_quality_controls"
                                 type="object"
                                 class="oe_stat_button"
                                 icon="fa-tasks"
                                 >
-
-
-                            <field name="qc_count" widget="statinfo" string="Construction Control"/>
+                            <field name="qc_count" widget="statinfo" string="Item Sent To Inventory"/>
+                        </button>
+<!--                        button action sent to property-->
+                        <button name="action_open_const_property"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-tasks"
+                                >
+                            <field name="pc_count" widget="statinfo" string="Item Sent To Property"/>
                         </button>
 
                     </div>
