@@ -143,8 +143,8 @@ class ConstructionControl(models.Model):
     construction_quality_ids = fields.One2many(
         'quality.control', 'const_contract_id', string="Quality Control Records")
 
-    equipment_ids = fields.One2many(
-        'maintenance.equipment', 'const_contract_id', string="Equipments"
+    property_control_ids = fields.One2many(
+        'property.control', 'const_contract_id', string="Equipments"
     )
 
     pc_count = fields.Integer(
@@ -153,10 +153,10 @@ class ConstructionControl(models.Model):
         store=True  # optional, if you want it stored
     )
 
-    @api.depends('equipment_ids')
+    @api.depends('property_control_ids')
     def _compute_pc_count(self):
         for rec in self:
-            rec.qc_count = len(rec.equipment_ids)
+            rec.qc_count = len(rec.property_control_ids)
 
     qc_count = fields.Integer(
         string="QC Count",
@@ -270,59 +270,172 @@ class ConstructionControl(models.Model):
     #
     #     return True
 
+    # def action_send_to_property(self):
+    #     """
+    #     Send construction contract lines to the Maintenance Equipment module
+    #     """
+    #     MaintenanceEquipment = self.env['maintenance.equipment']
+    #
+    #     for contract in self:
+    #         if not contract.line_ids:
+    #             raise UserError("There are no construction items to send to property.")
+    #
+    #         # Build a map of already sent lines (if needed, to avoid duplicates)
+    #         sent_lines_map = defaultdict(float)
+    #         existing_equipments = MaintenanceEquipment.search([('const_contract_id', '=', contract.id)])
+    #         for equip in existing_equipments:
+    #             key = (equip.name, equip.unit_price)
+    #             sent_lines_map[key] += equip.subtotal or 0.0
+    #
+    #         # Prepare equipment records
+    #         equipment_vals = []
+    #         for line in contract.line_ids:
+    #             if not line.product_id:
+    #                 continue
+    #
+    #             key = (line.product_id.name, line.price)
+    #             # Calculate remaining quantity if you want to avoid duplicates
+    #             remaining_qty = line.max_qty - sent_lines_map.get(key, 0.0)
+    #
+    #             if remaining_qty <= 0:
+    #                 continue
+    #
+    #             vals = {
+    #                 'name': line.product_id.name,
+    #                 'const_contract_id': contract.id,  # link back to the contract
+    #                 'product_uom_id': line.unit_measure.id,
+    #                 'unit_price': line.price,
+    #                 'subtotal': line.sub_total,
+    #                 'warehouse_id': contract.warehouse_id.id,
+    #                 'max_qty': remaining_qty,
+    #                 'note': f"Generated from Contract {contract.contract_number} on {fields.Date.today()}",
+    #             }
+    #
+    #             equipment_vals.append(vals)
+    #
+    #         # Create all equipment records in one batch
+    #         if equipment_vals:
+    #             MaintenanceEquipment.create(equipment_vals)
+    #
+    #             # Post message in chatter
+    #             contract.message_post(
+    #                 body=_("🏗️ Construction items have been sent to Property (Maintenance Equipment).")
+    #             )
+    #         else:
+    #             raise UserError("All lines in this contract are already sent to Property.")
+    #
+    #     return True
+
+
+
+
+
+
+
+
+
+
+    # def action_send_to_property(self):
+    #     for contract in self:
+    #         if not contract.warehouse_id:
+    #             raise ValidationError("Missing Warehouse on contract.")
+    #         if not contract.contract_id or not contract.contract_id.proc_offer_id:
+    #             raise ValidationError("Missing Vendor in the contract offer.")
+    #
+    #         # 🚫 Block if any existing QC is still not done
+    #         active_qc = contract.property_control_ids.filtered(lambda q: q.state != 'done')
+    #         if active_qc:
+    #             raise UserError(
+    #                 "You already have a QC in Draft or In Progress. Please finish it before creating a new one.")
+    #
+    #         # ✅ Build approved qty map only from passed (approved) lines
+    #         approved_qty_map = defaultdict(float)
+    #
+    #         for qc in contract.property_control_ids:
+    #             for line in qc.line_ids:
+    #                 if not line.product_id:
+    #                     continue
+    #                 key = (line.product_id.id, line.name or '', line.price_unit)
+    #                 if line.passed:
+    #                     approved_qty_map[key] += line.approved_qty or 0.0
+    #
+    #         # ✅ Now build QC lines for remaining qty
+    #         qc_lines = []
+    #
+    #         for line in contract.line_ids:
+    #             if not line.product_id or line.first_estimation_qty <= 0:
+    #                 continue
+    #
+    #             key = (line.product_id.id, line.description or '', line.price or 0.0)
+    #             already_approved = approved_qty_map.get(key, 0.0)
+    #             remaining_qty = line.first_estimation_qty - already_approved
+    #
+    #             if remaining_qty > 0:
+    #                 qc_lines.append((0, 0, {
+    #                     'product_id': line.product_id.id,
+    #                     'product_uom_qty': remaining_qty,
+    #                     'price_unit': line.price or 0.0,
+    #                     'name': line.description or line.product_id.name,
+    #                 }))
+    #
+    #         if not qc_lines:
+    #             raise UserError("All products in this contract are fully approved. Nothing left for QC.")
+    #
+    #         # ✅ Create QC
+    #         qc_vals = {
+    #             'const_contract_id': contract.id,
+    #             'warehouse_id': contract.warehouse_id.id,
+    #             'partner_id': contract.contract_id.proc_offer_id.id,
+    #             'origin': contract.contract_number or f"Contract-{contract.id}",
+    #             'line_ids': qc_lines,
+    #         }
+    #
+    #         qc = self.env['property.control'].sudo().create(qc_vals)
+    #         contract.message_post(body=_("📦 QC created for pending/rejected products. Ref: %s" % qc.name))
+    #
+    #     return True
+
     def action_send_to_property(self):
-        """
-        Send construction contract lines to the Maintenance Equipment module
-        """
-        MaintenanceEquipment = self.env['maintenance.equipment']
-
         for contract in self:
-            if not contract.line_ids:
-                raise UserError("There are no construction items to send to property.")
+            if not contract.warehouse_id:
+                raise ValidationError("Missing Warehouse on contract.")
+            if not contract.contract_id or not contract.contract_id.proc_offer_id:
+                raise ValidationError("Missing Vendor in the contract offer.")
 
-            # Build a map of already sent lines (if needed, to avoid duplicates)
-            sent_lines_map = defaultdict(float)
-            existing_equipments = MaintenanceEquipment.search([('const_contract_id', '=', contract.id)])
-            for equip in existing_equipments:
-                key = (equip.name, equip.unit_price)
-                sent_lines_map[key] += equip.subtotal or 0.0
-
-            # Prepare equipment records
-            equipment_vals = []
-            for line in contract.line_ids:
-                if not line.product_id:
-                    continue
-
-                key = (line.product_id.name, line.price)
-                # Calculate remaining quantity if you want to avoid duplicates
-                remaining_qty = line.max_qty - sent_lines_map.get(key, 0.0)
-
-                if remaining_qty <= 0:
-                    continue
-
-                vals = {
-                    'name': line.product_id.name,
-                    'const_contract_id': contract.id,  # link back to the contract
-                    'product_uom_id': line.unit_measure.id,
-                    'unit_price': line.price,
-                    'subtotal': line.sub_total,
-                    'warehouse_id': contract.warehouse_id.id,
-                    'max_qty': remaining_qty,
-                    'note': f"Generated from Contract {contract.contract_number} on {fields.Date.today()}",
-                }
-
-                equipment_vals.append(vals)
-
-            # Create all equipment records in one batch
-            if equipment_vals:
-                MaintenanceEquipment.create(equipment_vals)
-
-                # Post message in chatter
-                contract.message_post(
-                    body=_("🏗️ Construction items have been sent to Property (Maintenance Equipment).")
+            # Block if any property control is not done
+            active_pc = contract.property_control_ids.filtered(lambda q: q.state != 'done')
+            if active_pc:
+                raise UserError(
+                    "You already have a Property Control in Draft or In Progress. Please finish it before creating a new one."
                 )
-            else:
-                raise UserError("All lines in this contract are already sent to Property.")
+
+            # Build property control lines
+            pc_lines = []
+            for line in contract.line_ids:
+                if not line.product_id or line.first_estimation_qty <= 0:
+                    continue
+
+                pc_lines.append((0, 0, {
+                    'product_id': line.product_id.id,
+                    'product_uom_qty': line.first_estimation_qty,
+                    'price_unit': line.price or 0.0,
+                    'name': line.description or line.product_id.name,
+                }))
+
+            if not pc_lines:
+                raise UserError("No items left to send to Property Control.")
+
+            # Create property control record
+            pc_vals = {
+                'const_contract_id': contract.id,
+                'warehouse_id': contract.warehouse_id.id,
+                'partner_id': contract.contract_id.proc_offer_id.id,
+                'origin': contract.contract_number or f"Contract-{contract.id}",
+                'line_ids': pc_lines,
+            }
+
+            pc = self.env['property.control'].sudo().create(pc_vals)
+            contract.message_post(body=_("🏗️ Property Control created. Ref: %s" % pc.name))
 
         return True
 
@@ -338,12 +451,12 @@ class ConstructionControl(models.Model):
 
     qc_line_summary_html = fields.Html(
         string="QC Summary",
-        compute="_compute_qc_summary_html",
+        compute="_compute_pc_summary_html",
         sanitize=False,
         store=False,
     )
     # start of function that compute approved quality products.
-    def _compute_qc_summary_html(self):
+    def _compute_pc_summary_html(self):
         for contract in self:
             summary = {}
             for line in contract.quality_line_ids:
@@ -356,12 +469,11 @@ class ConstructionControl(models.Model):
                         'price_total': 0,
                         'line_count': 0,
                     }
+
                 summary[pid]['approved_qty'] += line.approved_qty or 0.0
-                summary[pid]['quantity_sum'] += line.product_uom_qty - line.approved_qty or 0.0
+                summary[pid]['quantity_sum'] += line.product_uom_qty - (line.approved_qty or 0.0)
                 summary[pid]['price_total'] += (line.price_unit or 0.0)
-
                 summary[pid]['line_count'] += 1
-
 
             html = """
                 <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
@@ -369,7 +481,7 @@ class ConstructionControl(models.Model):
                         <tr style="background-color: #f5f5f5; color: #333;">
                             <th style="border: 1px solid #ccc; padding: 8px;">🛒 Product</th>
                             <th style="border: 1px solid #ccc; padding: 8px;">✅ Approved Qty</th>
-                              <th style="border: 1px solid #ccc; padding: 8px;">❌ Not Approved Qty</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">❌ Not Approved Qty</th>
                             <th style="border: 1px solid #ccc; padding: 8px;">💰 Avg Price</th>
                             <th style="border: 1px solid #ccc; padding: 8px;">📦 QC Count</th>
                         </tr>
@@ -391,6 +503,7 @@ class ConstructionControl(models.Model):
 
             html += "</tbody></table>"
             contract.qc_line_summary_html = html
+
     #         end of function
 
 
@@ -405,14 +518,89 @@ class ConstructionControl(models.Model):
             'target': 'current',
         }
 
+
+    # Property Control Approved Lines
+    property_line_ids = fields.One2many(
+        'property.control.line', compute='_compute_property_lines',
+        string="Approved Property Lines", store=False
+    )
+
+    @api.depends('property_control_ids.line_ids')
+    def _compute_property_lines(self):
+        """
+        Compute approved property lines based on state='done'.
+        """
+        for contract in self:
+            contract.property_line_ids = contract.property_control_ids.mapped('line_ids').filtered(
+                lambda l: l.state == 'done')
+
+    # Property Control Summary HTML
+    property_line_summary_html = fields.Html(
+        string="Property Control Summary",
+        compute="_compute_property_summary_html",
+        sanitize=False,
+        store=False,
+    )
+
+    def _compute_property_summary_html(self):
+        """
+        Compute HTML summary table for approved property lines.
+        """
+        for contract in self:
+            summary = {}
+            for line in contract.property_line_ids:
+                pid = line.product_id.id
+                if pid not in summary:
+                    summary[pid] = {
+                        'product': line.product_id.display_name,
+                        'approved_qty': 0,
+                        'quantity_sum': 0.0,
+                        'price_total': 0,
+                        'line_count': 0,
+                    }
+
+                summary[pid]['approved_qty'] += line.approved_qty or 0.0
+                summary[pid]['quantity_sum'] += line.product_uom_qty - (line.approved_qty or 0.0)
+                summary[pid]['price_total'] += (line.price_unit or 0.0)
+                summary[pid]['line_count'] += 1
+
+            html = """
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr style="background-color: #f5f5f5; color: #333;">
+                            <th style="border: 1px solid #ccc; padding: 8px;">🛒 Product</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">✅ Approved Qty</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">❌ Not Approved Qty</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">💰 Avg Price</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">📦 Property Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            """
+
+            for data in summary.values():
+                avg_price = data['price_total'] / data['line_count'] if data['line_count'] else 0
+                html += f"""
+                    <tr style="border: 1px solid #ddd;">
+                        <td style="border: 1px solid #ccc; padding: 8px;">{data['product']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['approved_qty']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['quantity_sum']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{round(avg_price, 2)}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['line_count']}</td>
+                    </tr>
+                """
+
+            html += "</tbody></table>"
+            contract.property_line_summary_html = html
+
     # this function show the data sent to the property.
     def action_open_const_property(self):
         return {
             'type': 'ir.actions.act_window',
             'name': _('Property Records'),
-            'res_model': 'maintenance.equipment',
+            'res_model': 'property.control',
             'view_mode': 'tree,form',
-            'domain': [('id', 'in', self.equipment_ids.ids)],
+            'domain': [('id', 'in', self.property_control_ids.ids)],
             'target': 'current',
         }
 
