@@ -156,7 +156,7 @@ class ConstructionControl(models.Model):
     @api.depends('property_control_ids')
     def _compute_pc_count(self):
         for rec in self:
-            rec.qc_count = len(rec.property_control_ids)
+            rec.pc_count = len(rec.property_control_ids)
 
     qc_count = fields.Integer(
         string="QC Count",
