@@ -451,12 +451,19 @@ class ConstructionControl(models.Model):
 
     qc_line_summary_html = fields.Html(
         string="QC Summary",
+        compute="_compute_qc_summary_html",
+        sanitize=False,
+        store=False,
+    )
+
+    pc_line_summary_html = fields.Html(
+        string="PC Summary",
         compute="_compute_pc_summary_html",
         sanitize=False,
         store=False,
     )
     # start of function that compute approved quality products.
-    def _compute_pc_summary_html(self):
+    def _compute_qc_summary_html(self):
         for contract in self:
             summary = {}
             for line in contract.quality_line_ids:
@@ -505,6 +512,54 @@ class ConstructionControl(models.Model):
             contract.qc_line_summary_html = html
 
     #         end of function
+
+    def _compute_pc_summary_html(self):
+        for contract in self:
+            summary = {}
+            for line in contract.quality_line_ids:
+                pid = line.product_id.id
+                if pid not in summary:
+                    summary[pid] = {
+                        'product': line.product_id.display_name,
+                        'approved_qty': 0,
+                        'quantity_sum': 0.0,
+                        'price_total': 0,
+                        'line_count': 0,
+                    }
+
+                summary[pid]['approved_qty'] += line.approved_qty or 0.0
+                summary[pid]['quantity_sum'] += line.product_uom_qty - (line.approved_qty or 0.0)
+                summary[pid]['price_total'] += (line.price_unit or 0.0)
+                summary[pid]['line_count'] += 1
+
+            html = """
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr style="background-color: #f5f5f5; color: #333;">
+                            <th style="border: 1px solid #ccc; padding: 8px;">🛒 Product</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">✅ Approved Qty</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">❌ Not Approved Qty</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">💰 Avg Price</th>
+                            <th style="border: 1px solid #ccc; padding: 8px;">📦 QC Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            """
+
+            for data in summary.values():
+                avg_price = data['price_total'] / data['line_count'] if data['line_count'] else 0
+                html += f"""
+                    <tr style="border: 1px solid #ddd;">
+                        <td style="border: 1px solid #ccc; padding: 8px;">{data['product']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['approved_qty']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['quantity_sum']}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{round(avg_price, 2)}</td>
+                        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">{data['line_count']}</td>
+                    </tr>
+                """
+
+            html += "</tbody></table>"
+            contract.pc_line_summary_html = html
 
 
     # this function show the data sent to the inventory.
