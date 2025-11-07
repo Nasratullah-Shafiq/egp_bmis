@@ -15,7 +15,6 @@ class ConstructionControl(models.Model):
 
     # Link to procurement offer (contractor offer)
 
-
     contract_id = fields.Many2one(
         'proc.contract',
         string='Procurement Contract',
@@ -37,7 +36,6 @@ class ConstructionControl(models.Model):
         string="Contract Signing Date",
         readonly=True
     )
-
 
     start_date = fields.Date(
         string="Contract Start Date",
