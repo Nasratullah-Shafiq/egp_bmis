@@ -13,7 +13,6 @@ class ConstBoardMember(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Const Board Members"
 
-
     position_title = fields.Char(string='Position', related='employee_id.job_id.name', store=True)
     phone = fields.Char(string='Phone', related='employee_id.work_phone', store=True)
     email = fields.Char(string='Email', related='employee_id.work_email', store=True)
