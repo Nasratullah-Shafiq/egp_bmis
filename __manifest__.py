@@ -13,7 +13,7 @@
         'data/egp_bmis_default_data.xml',
         'views/menu.xml',
         'views/construction_control_views.xml',
-
+        'report/construction_control_report.xml',
     ],
     "author": "Nasratullah Shafiq",
     "website": "https://mcit.gov.af/",
