@@ -3,30 +3,166 @@
     <!-- ============================= -->
     <!-- Enhanced Construction Report  -->
     <!-- ============================= -->
-    <template id="report_construction_control_line">
+<!--    <template id="report_construction_control_line">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-call="web.external_layout">-->
+
+<!--                &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                &lt;!&ndash; Report Header Section  &ndash;&gt;-->
+<!--                &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                <div class="page">-->
+<!--                    <div class="text-center mb16">-->
+<!--                        &lt;!&ndash;                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo.decode()"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                             style="height: 60px;"/>&ndash;&gt;-->
+<!--                        <h2 style="margin-top: 10px; color:#004d99;">Construction Quality Control Report</h2>-->
+<!--                        <p style="font-size: 12px; color: #777;">-->
+<!--                            Generated on-->
+<!--                            &lt;!&ndash;                            <t t-esc="format_date(datetime.now())"/>&ndash;&gt;-->
+<!--                        </p>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                    &lt;!&ndash; Table of Line Items    &ndash;&gt;-->
+<!--                    &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                    <table class="table table-sm table-bordered"-->
+<!--                           style="width:100%; border-collapse: collapse; font-size: 13px;">-->
+<!--                        <thead style="background-color: #004d99; color: white;">-->
+<!--                            <tr>-->
+<!--                                <th>#</th>-->
+<!--                                <th>Product</th>-->
+<!--                                <th>Description</th>-->
+<!--                                <th>Unit</th>-->
+<!--                                <th class="text-right">Max Qty</th>-->
+<!--                                <th class="text-right">1st Est.</th>-->
+<!--                                <th class="text-right">2nd Est.</th>-->
+<!--                                <th class="text-right">Difference</th>-->
+<!--                                <th class="text-right">Unit Price</th>-->
+<!--                                <th class="text-right">Subtotal</th>-->
+<!--                                <th class="text-center">Status</th>-->
+<!--                            </tr>-->
+<!--                        </thead>-->
+
+<!--                        <tbody>-->
+<!--                            <t t-set="total_sub" t-value="0"/>-->
+<!--                            <t t-foreach="docs" t-as="line" t-foreach-index="i">-->
+<!--                                <t t-set="total_sub" t-value="total_sub + (line.sub_total or 0.0)"/>-->
+<!--                                <tr t-attf-class="{'bg-light' if i % 2 == 0 else ''}">-->
+<!--                                    <td class="text-center">-->
+<!--                                        <t t-esc="i + 1"/>-->
+<!--                                    </td>-->
+<!--                                    <td>-->
+<!--                                        <t t-esc="line.product_id.display_name"/>-->
+<!--                                    </td>-->
+<!--                                    <td>-->
+<!--                                        <t t-esc="line.description"/>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-center">-->
+<!--                                        <t t-esc="line.unit_measure.name or ''"/>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-right">-->
+<!--                                        <t t-esc="line.max_qty or 0.0"/>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-right">-->
+<!--                                        <t t-esc="line.first_estimation_qty or 0.0"/>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-right">-->
+<!--                                        <t t-esc="line.second_estimation_qty or 0.0"/>-->
+<!--                                    </td>-->
+
+<!--                                    &lt;!&ndash; Difference with color indicator &ndash;&gt;-->
+<!--                                    <td class="text-right"-->
+<!--                                        t-attf-style="color: {{ 'red' if line.estimation_difference > 0 else 'green' }};">-->
+<!--                                        <t t-esc="line.estimation_difference or 0.0"/>-->
+<!--                                    </td>-->
+
+<!--                                    <td class="text-right">-->
+<!--                                        <t t-esc="line.price or 0.0"/>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-right">-->
+<!--                                        <t t-esc="line.sub_total or 0.0"/>-->
+<!--                                    </td>-->
+<!--                                    <td class="text-center">-->
+<!--                                        <t t-if="line.completed">-->
+<!--                                            <span style="color:green;">✔ Completed</span>-->
+<!--                                        </t>-->
+<!--                                        <t t-else="">-->
+<!--                                            <span style="color:red;">✖ Pending</span>-->
+<!--                                        </t>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </t>-->
+<!--                        </tbody>-->
+
+<!--                        &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                        &lt;!&ndash; Totals Footer          &ndash;&gt;-->
+<!--                        &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                        <tfoot>-->
+<!--                            <tr style="background-color: #f0f0f0; font-weight: bold;">-->
+<!--                                <td colspan="9" class="text-right">Total:</td>-->
+<!--                                <td class="text-right">-->
+<!--                                    <t t-esc="total_sub"/>-->
+<!--                                </td>-->
+<!--                                <td></td>-->
+<!--                            </tr>-->
+<!--                        </tfoot>-->
+<!--                    </table>-->
+
+<!--                    &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                    &lt;!&ndash; Technical Details      &ndash;&gt;-->
+<!--                    &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                    <div class="mt32">-->
+<!--                        <h4 style="color:#004d99;">Technical Details &amp; Remarks</h4>-->
+<!--                        <ul>-->
+<!--                            <t t-foreach="docs" t-as="line">-->
+<!--                                <t t-if="line.details">-->
+<!--                                    <li>-->
+<!--                                        <strong><t t-esc="line.product_id.display_name"/>:-->
+<!--                                        </strong>-->
+<!--                                        <t t-esc="line.details"/>-->
+<!--                                    </li>-->
+<!--                                </t>-->
+<!--                            </t>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                &lt;!&ndash; Footer Section         &ndash;&gt;-->
+<!--                &lt;!&ndash; ====================== &ndash;&gt;-->
+<!--                <div class="text-center mt16" style="font-size: 11px; color:#666;">-->
+<!--                    <span>Report generated by Odoo |-->
+<!--                        &lt;!&ndash;                        <t t-esc="company.name or 'Your Company'"/>&ndash;&gt;-->
+<!--                    </span>-->
+<!--                    <br/>-->
+<!--                    <span>Page-->
+<!--                        <span class="page"/>-->
+<!--                        /-->
+<!--                        <span class="topage"/>-->
+<!--                    </span>-->
+<!--                </div>-->
+
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+<template id="report_construction_control_line">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
 
-                <!-- ====================== -->
-                <!-- Report Header Section  -->
-                <!-- ====================== -->
                 <div class="page">
+                    <!-- Header -->
                     <div class="text-center mb16">
-                        <!--                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo.decode()"-->
-                        <!--                             style="height: 60px;"/>-->
-                        <h2 style="margin-top: 10px; color:#004d99;">Construction Quality Control Report</h2>
-                        <p style="font-size: 12px; color: #777;">
-                            Generated on
-                            <!--                            <t t-esc="format_date(datetime.now())"/>-->
+                        <h2 style="margin-top: 10px; color:#004080; font-weight:600;">
+                            Construction Quality Control Report
+                        </h2>
+                        <p style="font-size: 12px; color: #666;">
+                            Generated by <t t-esc="user.name or 'System'"/>
                         </p>
                     </div>
 
-                    <!-- ====================== -->
-                    <!-- Table of Line Items    -->
-                    <!-- ====================== -->
+                    <!-- Table -->
                     <table class="table table-sm table-bordered"
                            style="width:100%; border-collapse: collapse; font-size: 13px;">
-                        <thead style="background-color: #004d99; color: white;">
+                        <thead style="background-color:#004080; color:white;">
                             <tr>
                                 <th>#</th>
                                 <th>Product</th>
@@ -41,46 +177,24 @@
                                 <th class="text-center">Status</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <t t-set="total_sub" t-value="0"/>
                             <t t-foreach="docs" t-as="line" t-foreach-index="i">
                                 <t t-set="total_sub" t-value="total_sub + (line.sub_total or 0.0)"/>
-                                <tr t-attf-class="{'bg-light' if i % 2 == 0 else ''}">
-                                    <td class="text-center">
-                                        <t t-esc="i + 1"/>
-                                    </td>
-                                    <td>
-                                        <t t-esc="line.product_id.display_name or ''"/>
-                                    </td>
-                                    <td>
-                                        <t t-esc="line.description or ''"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <t t-esc="line.unit_measure.name or ''"/>
-                                    </td>
-                                    <td class="text-right">
-                                        <t t-esc="line.max_qty or 0.0"/>
-                                    </td>
-                                    <td class="text-right">
-                                        <t t-esc="line.first_estimation_qty or 0.0"/>
-                                    </td>
-                                    <td class="text-right">
-                                        <t t-esc="line.second_estimation_qty or 0.0"/>
-                                    </td>
-
-                                    <!-- Difference with color indicator -->
+                                <tr t-attf-style="background-color: {{ '#f9f9f9' if i % 2 == 0 else 'white' }};">
+                                    <td class="text-center"><t t-esc="i + 1"/></td>
+                                    <td><t t-esc="line.product_id.display_name or ''"/></td>
+                                    <td><t t-esc="line.description or ''"/></td>
+                                    <td class="text-center"><t t-esc="line.unit_measure.name or ''"/></td>
+                                    <td class="text-right"><t t-esc="line.max_qty or 0.0"/></td>
+                                    <td class="text-right"><t t-esc="line.first_estimation_qty or 0.0"/></td>
+                                    <td class="text-right"><t t-esc="line.second_estimation_qty or 0.0"/></td>
                                     <td class="text-right"
                                         t-attf-style="color: {{ 'red' if line.estimation_difference > 0 else 'green' }};">
                                         <t t-esc="line.estimation_difference or 0.0"/>
                                     </td>
-
-                                    <td class="text-right">
-                                        <t t-esc="line.price or 0.0"/>
-                                    </td>
-                                    <td class="text-right">
-                                        <t t-esc="line.sub_total or 0.0"/>
-                                    </td>
+                                    <td class="text-right"><t t-esc="line.price or 0.0"/></td>
+                                    <td class="text-right"><t t-esc="line.sub_total or 0.0"/></td>
                                     <td class="text-center">
                                         <t t-if="line.completed">
                                             <span style="color:green;">✔ Completed</span>
@@ -93,52 +207,37 @@
                             </t>
                         </tbody>
 
-                        <!-- ====================== -->
-                        <!-- Totals Footer          -->
-                        <!-- ====================== -->
                         <tfoot>
-                            <tr style="background-color: #f0f0f0; font-weight: bold;">
+                            <tr style="background-color:#f0f0f0; font-weight:bold;">
                                 <td colspan="9" class="text-right">Total:</td>
-                                <td class="text-right">
-                                    <t t-esc="total_sub"/>
-                                </td>
-                                <td></td>
+                                <td class="text-right"><t t-esc="total_sub"/></td>
+                                <td> </td>
                             </tr>
                         </tfoot>
                     </table>
 
-                    <!-- ====================== -->
-                    <!-- Technical Details      -->
-                    <!-- ====================== -->
+                    <!-- Technical Details -->
                     <div class="mt32">
-                        <h4 style="color:#004d99;">Technical Details &amp; Remarks</h4>
-                        <ul>
+                        <h4 style="color:#004080; border-bottom:1px solid #ccc; padding-bottom:5px;">
+                            Technical Details Remarks
+                        </h4>
+                        <ul style="font-size:13px; line-height:1.6;">
                             <t t-foreach="docs" t-as="line">
                                 <t t-if="line.details">
                                     <li>
-                                        <strong><t t-esc="line.product_id.display_name"/>:
-                                        </strong>
+                                        <strong><t t-esc="line.product_id.display_name"/>:</strong>
                                         <t t-esc="line.details"/>
                                     </li>
                                 </t>
                             </t>
                         </ul>
                     </div>
-                </div>
 
-                <!-- ====================== -->
-                <!-- Footer Section         -->
-                <!-- ====================== -->
-                <div class="text-center mt16" style="font-size: 11px; color:#666;">
-                    <span>Report generated by Odoo |
-                        <!--                        <t t-esc="company.name or 'Your Company'"/>-->
-                    </span>
-                    <br/>
-                    <span>Page
-                        <span class="page"/>
-                        /
-                        <span class="topage"/>
-                    </span>
+                    <!-- Footer -->
+                    <div class="text-center mt16" style="font-size: 11px; color:#666;">
+                        <span>Report generated by Odoo</span><br/>
+                        <span>Page <span class="page"/> / <span class="topage"/></span>
+                    </div>
                 </div>
 
             </t>
@@ -149,16 +248,16 @@
     <!-- ============================= -->
     <!-- Report Action                 -->
     <!-- ============================= -->
-    <report
-            id="action_report_construction_control_line"
-            model="construction.control.line"
-            string="Construction Control Line Report"
-            report_type="qweb-pdf"
-            name="your_module_name.report_construction_control_line"
-            file="your_module_name.report_construction_control_line"
-            paperformat="paperformat_landscape"
-            print_report_name="'Construction_Control_Report_%s' % (object.product_id.display_name or '')"
-    />
+<!--    <report-->
+<!--            id="action_report_construction_control_line"-->
+<!--            model="construction.control.line"-->
+<!--            string="Construction Control Line Report"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="egp_bmis.report_construction_control_line"-->
+<!--            file="egp_bmis.report_construction_control_line"-->
+<!--            paperformat="paperformat_landscape"-->
+<!--            print_report_name="'Construction_Control_Report_%s' % (object.product_id.display_name or '')"-->
+<!--    />-->
     <record id="action_construction_report_window" model="ir.actions.report">
         <field name="name">Construction Quality Control Report</field>
         <field name="model">construction.control.line</field>
