@@ -1,7 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 from collections import defaultdict
-
+ 
 
 class ConstructionControl(models.Model):
     """
