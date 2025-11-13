@@ -10,6 +10,7 @@ class ConstructionControlLinePart(models.Model):
     qty = fields.Float(string='Quantity Delivered', required=True)
     delivery_date = fields.Date(string='Delivery Date', default=fields.Date.today)
     notes = fields.Text(string='Notes')
+    location = fields.Char(string='Location', required=True)
     unit_of_measure = fields.Many2one(
         'uom.uom',
         string="Unit of Measure",
