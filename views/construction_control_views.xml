@@ -143,22 +143,22 @@
                                             <field name="details"/>
                                         </group>
                                     </group>
+                                    <notebook>
+                                        <page string="Partial Deliveries">
+                                            <field name="part_ids">
+                                                <tree editable="bottom">
+                                                    <field name="qty"/>
+                                                    <field name="unit_of_measure"/>
+                                                    <field name="location"/>
+                                                    <field name="delivery_date"/>
+                                                    <field name="notes"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                    </notebook>
                                 </form>
                             </field>
                         </page>
-
-                        <page string="Partial Deliveries">
-                            <field name="part_ids">
-                                <tree editable="bottom">
-                                    <field name="qty"/>
-                                    <field name="unit_measure_id"/>
-                                    <field name="delivery_date"/>
-                                    <field name="notes"/>
-                                </tree>
-                            </field>
-                        </page>
-
-
                         <page string="Additional Information">
                             <tree>
                                 <field name="description" readonly="state == 'draft' or not user_has_group_bmis_officer"/>
