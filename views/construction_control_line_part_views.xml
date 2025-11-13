@@ -1,0 +1,12 @@
+<record id="view_construction_control_line_part_tree" model="ir.ui.view">
+    <field name="name">construction.control.line.part.tree</field>
+    <field name="model">construction.control.line.part</field>
+    <field name="arch" type="xml">
+        <tree string="Partial Deliveries">
+            <field name="line_id"/>
+            <field name="qty"/>
+            <field name="delivery_date"/>
+            <field name="notes"/>
+        </tree>
+    </field>
+</record>
