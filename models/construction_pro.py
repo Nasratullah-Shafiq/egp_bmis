@@ -798,6 +798,8 @@ class ConstructionControlLine(models.Model):
         string="Completed",
         help="Marked True when both estimations are equal."
     )
+    # Partial deliveries
+    part_ids = fields.One2many('construction.control.line.part', 'line_id', string='Partial Deliveries')
 
     @api.depends('first_estimation_qty', 'price')
     def _compute_sub_total(self):
