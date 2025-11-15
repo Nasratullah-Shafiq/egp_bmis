@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 egp_bmis.access_construction_control,access_construction_control,egp_bmis.model_construction_control,egp_bmis.group_bmis_officer,1,1,1,1
 egp_bmis.access_construction_control_line,access_construction_control_line,egp_bmis.model_construction_control_line,egp_bmis.group_bmis_officer,1,1,1,1
 egp_bmis.access_const_board_member,access_const_board_member,egp_bmis.model_const_board_member,egp_bmis.group_bmis_officer,1,1,1,1
+access_construction_control_line_part_bmis,access_construction_control_line_part_bmis,model_construction_control_line_part,group_bmis_officer,1,1,1,1
